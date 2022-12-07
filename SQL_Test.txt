@@ -56,3 +56,22 @@ end
 
 exec productNames @var1 = 10248
 
+------------------------8
+
+select distinct CustomerID, EmployeeID, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry 
+from  Orders where CustomerID like 'B%' and ShipVia = 1 and (ShipCountry like 'Sweden' or ShipCountry
+like 'France' or ShipCountry like 'Canada') and (EmployeeID = 2 or EmployeeID = 5)
+
+
+-----------------------9
+
+select [Order Details].*,OrderDate,EmployeeID,CustomerID from [Order Details] inner join Orders
+on [Order Details].OrderID = Orders.OrderID  OR  [Order Details].OrderID != Orders.OrderID 
+where [Order Details].OrderID = 10248 and CustomerID like 'VINET'
+order by UnitPrice
+
+
+-----------------------10
+
+select CustomerID, Region, Country from Customers where 
+Country like 'Canada' or Country like 'France'
