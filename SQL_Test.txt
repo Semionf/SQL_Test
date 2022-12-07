@@ -68,7 +68,7 @@ like 'France' or ShipCountry like 'Canada') and (EmployeeID = 2 or EmployeeID = 
 select [Order Details].*,OrderDate,EmployeeID,CustomerID from [Order Details] inner join Orders
 on [Order Details].OrderID = Orders.OrderID  OR  [Order Details].OrderID != Orders.OrderID 
 where [Order Details].OrderID = 10248 and CustomerID like 'VINET'
-order by UnitPrice
+order by UnitPrice, EmployeeID
 
 
 -----------------------10
